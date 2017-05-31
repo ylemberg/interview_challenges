@@ -1,3 +1,5 @@
+// Reference to problem: https://challenge.makerpass.com/c/b91ba11941a214e41b2da9a07b57c233
+
 const powerSet = str => {
   let sets = [''];
   [...str]
