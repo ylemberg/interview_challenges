@@ -7,5 +7,5 @@ const logInOneSecond = idx => {
 }
 
 for (var i = 0; i < 5; i++) {
-  logInOneSecond(i)
+  logInOneSecond(i) 
 }
