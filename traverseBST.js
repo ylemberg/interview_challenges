@@ -18,8 +18,8 @@ class BinaryTreeNode {
 
 const inOrderRecursive = node => {
   node.left && inOrderRecursive(node.left)
-  node.right && inOrderRecursive(node.right)
   console.log(node.val)
+  node.right && inOrderRecursive(node.right)
 }
 
 const inOrderIterative = root => {
@@ -42,16 +42,33 @@ const inOrderIterative = root => {
   }
 }
 
-const bst = new BinaryTreeNode(1)
+const preOrderRecursive = node => {
+  console.log(node.val)
+  node.left && preOrderRecursive(node.left)
+  node.right && preOrderRecursive(node.right)
+}
+
+const postOrderRecursive = node => {
+  node.left && postOrderRecursive(node.left)
+  node.right && postOrderRecursive(node.right)
+  console.log(node.val)
+}
+
+const bst = new BinaryTreeNode(4)
 const firstLeft = bst.insertLeft(2)
-const firstRight = bst.insertRight(3)
-const secondLeft = firstLeft.insertLeft(4)
-const secondRight = firstLeft.insertRight(5)
+const firstRight = bst.insertRight(7)
+const secondLeft = firstLeft.insertLeft(1)
+const secondRight = firstLeft.insertRight(3)
 const thirdLeft = firstRight.insertLeft(6)
-const thirdRight = firstRight.insertRight(7)
-const fourthRight = thirdRight.insertRight(8)
-const fifthRight = fourthRight.insertRight(9)
-const fourthLeft = thirdLeft.insertLeft(10)
+const thirdRight = firstRight.insertRight(8)
+const fourthRight = thirdRight.insertRight(9)
+const fifthRight = fourthRight.insertRight(10)
+const fourthLeft = thirdLeft.insertLeft(5)
 
 inOrderRecursive(bst)
 inOrderIterative(bst)
+
+preOrderRecursive(bst)
+
+
+postOrderRecursive(bst)
