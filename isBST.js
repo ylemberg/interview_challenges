@@ -36,7 +36,6 @@ const isBst = root => {
         }
 
         max = curr.val
-        inOrderNodes.push(curr.val)
         curr.right && stack.push(curr.right)
         curr = curr.right
       }
