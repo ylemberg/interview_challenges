@@ -22,6 +22,7 @@ const isBst = root => {
   const inOrderNodes = []
   const stack = [root]
   let curr = root
+  let max = Number.NEGATIVE_INFINITY
 
   while (stack.length) {
     if (curr) {
@@ -30,6 +31,11 @@ const isBst = root => {
     } else {
       curr = stack.pop()
       if (curr) {
+        if (curr.val <= max) {
+          return false
+        }
+
+        max = curr.val
         inOrderNodes.push(curr.val)
         curr.right && stack.push(curr.right)
         curr = curr.right
@@ -37,13 +43,6 @@ const isBst = root => {
     }
   }
 
-  let max = Number.NEGATIVE_INFINITY
-  for (let i = 0; i < inOrderNodes.length; i++) {
-    if (inOrderNodes[i] <= max) {
-      return false
-    }
-    max = inOrderNodes[i]
-  }
   return true
 }
 
@@ -66,7 +65,7 @@ const secondLeft2 = firstLeft2.insertLeft(1)
 const secondRight2 = firstLeft2.insertRight(5)
 const thirdLeft2 = firstRight2.insertLeft(11)
 const thirdRight2 = firstRight2.insertRight(15)
-const fourthRight2 = thirdRight2.insertRight(16)
+const fourthRight2 = thirdRight2.insertRight(17)
 const fifthRight2 = fourthRight2.insertRight(19)
 const fourthLeft2 = thirdLeft2.insertLeft(9)
 console.log(isBst(bst2))
