@@ -67,7 +67,7 @@ const postOrderRecursive = node => {
   console.log(node.val)
 }
 
-const postOrderIterative1Stack = root => {
+const postOrderIterative2Stacks = root => {
   const stack1 = [root]
   const stack2 = []
 
@@ -101,4 +101,4 @@ preOrderRecursive(bst)
 preOrderIterative(bst)
 
 postOrderRecursive(bst)
-postOrderIterative1Stack(bst)
+postOrderIterative2Stacks(bst)
