@@ -31,7 +31,7 @@ const inOrderIterative = root => {
     if (curr) {
       curr.left && stack.push(curr.left)
       curr = curr.left
-    } else if (!curr) {
+    } else {
       curr = stack.pop()
       console.log(curr.val)
       if (curr) {
