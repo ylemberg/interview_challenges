@@ -16,6 +16,7 @@ class BinaryTreeNode {
   }
 }
 
+// In-Order DFS
 const inOrderRecursive = node => {
   node.left && inOrderRecursive(node.left)
   console.log(node.val)
@@ -25,33 +26,49 @@ const inOrderRecursive = node => {
 const inOrderIterative = root => {
   const stack = [root]
   let curr = root
-  //let done = true
-  while (true) { // or while (!done)
+
+  while (stack.length) {
     if (curr) {
       curr.left && stack.push(curr.left)
       curr = curr.left
     } else if (!curr) {
-      if (!stack.length) {
-        break // or done = true
-      }
       curr = stack.pop()
       console.log(curr.val)
-      curr.right && stack.push(curr.right)
-      curr = curr.right
+      if (curr) {
+        curr.right && stack.push(curr.right)
+        curr = curr.right
+      }
     }
   }
 }
 
+// Pre-Order DFS
 const preOrderRecursive = node => {
   console.log(node.val)
   node.left && preOrderRecursive(node.left)
   node.right && preOrderRecursive(node.right)
 }
 
+const preOrderIterative = root => {
+  const stack = [root]
+
+  while (stack.length) {
+    const curr = stack.pop()
+    curr.right && stack.push(curr.right)
+    curr.left && stack.push(curr.left)
+    console.log(curr.val)
+  }
+}
+
+// Post-Order DFS
 const postOrderRecursive = node => {
   node.left && postOrderRecursive(node.left)
   node.right && postOrderRecursive(node.right)
   console.log(node.val)
+}
+
+const postOrderIterative = root => {
+
 }
 
 const bst = new BinaryTreeNode(4)
@@ -69,6 +86,8 @@ inOrderRecursive(bst)
 inOrderIterative(bst)
 
 preOrderRecursive(bst)
+preOrderIterative(bst)
 
 
 postOrderRecursive(bst)
+postOrderIterative(bst)
