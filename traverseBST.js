@@ -16,13 +16,13 @@ class BinaryTreeNode {
   }
 }
 
-const traverseRecurseInOrder = node => {
-  node.left && traverseRecurseInOrder(node.left)
-  node.right && traverseRecurseInOrder(node.right)
+const inOrderRecursive = node => {
+  node.left && inOrderRecursive(node.left)
+  node.right && inOrderRecursive(node.right)
   console.log(node.val)
 }
 
-const traverseIterativeInOrder = root => {
+const inOrderIterative = root => {
   const stack = [root]
   let curr = root
   //let done = true
@@ -53,5 +53,5 @@ const fourthRight = thirdRight.insertRight(8)
 const fifthRight = fourthRight.insertRight(9)
 const fourthLeft = thirdLeft.insertLeft(10)
 
-traverseRecurseInOrder(bst)
-traverseIterativeInOrder(bst)
+inOrderRecursive(bst)
+inOrderIterative(bst)
