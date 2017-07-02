@@ -67,8 +67,20 @@ const postOrderRecursive = node => {
   console.log(node.val)
 }
 
-const postOrderIterative = root => {
+const postOrderIterative1Stack = root => {
+  const stack1 = [root]
+  const stack2 = []
 
+  while (stack1.length) {
+    const curr = stack1.pop()
+    stack2.push(curr)
+    curr.left && stack1.push(curr.left)
+    curr.right && stack1.push(curr.right)
+  }
+
+  while (stack2.length) {
+    console.log(stack2.pop().val)
+  }
 }
 
 const bst = new BinaryTreeNode(4)
@@ -88,6 +100,5 @@ inOrderIterative(bst)
 preOrderRecursive(bst)
 preOrderIterative(bst)
 
-
 postOrderRecursive(bst)
-postOrderIterative(bst)
+postOrderIterative1Stack(bst)
