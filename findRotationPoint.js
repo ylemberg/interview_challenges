@@ -3,14 +3,14 @@ const findRotationPoint = arr => {
   let upper = arr.length
   const first = arr[0]
 
-  while (lower < upper) {
+  while (lower <= upper) {
     const mpIdx = lower + Math.floor((upper - lower) / 2)
     const mpVal = arr[mpIdx]
 
     if (first > mpVal) {
-      upper = mpIdx
+      upper = mpIdx - 1
     } else {
-      lower = mpIdx
+      lower = mpIdx + 1
     }
 
     if (arr[mpIdx - 1] > mpVal && arr[mpIdx + 1] > mpVal) {
