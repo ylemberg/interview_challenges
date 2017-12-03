@@ -1,3 +1,5 @@
+// Reference: https://www.interviewcake.com/question/javascript/bracket-validator?
+
 const validBrackets = str => {
   const validOpeners = {
     '{': true,
