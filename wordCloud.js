@@ -42,11 +42,7 @@ const getWordCloud = str => {
       word = word.toLowerCase()
     }
 
-    if (cloud.get(word)) {
-      cloud.set(word, cloud.get(word) + 1)
-    } else {
-      cloud.set(word, 1)
-    }
+    cloud.get(word) ? cloud.set(word, cloud.get(word) + 1) : cloud.set(word, 1)
 
     startOfSentence = str[i] === '.' ? true : false
     while (nonChars[str[i]]) {
